@@ -1,0 +1,16 @@
+const arr = ["a", "a", "b", "b", "c", "c", "d"]
+const charCount = []
+arr.forEach((item) => charCount[item] = charCount[item] ? charCount[item] + 1 : 1)
+// find the alphabet count
+console.log(charCount)
+// extract the list of alphabets found
+let keys = Object.keys(charCount);
+console.log(keys);
+// for each key, find count from charCount variable and check if count is just 1
+keys.forEach((key) => {
+    // 1. console.log(charCount[key]);
+    // 2. remaining logic
+    if (charCount[key] === 1) {
+        console.log(key, " is unique");
+    }
+})
