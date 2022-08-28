@@ -7,10 +7,10 @@ console.log(charCount)
 let keys = Object.keys(charCount);
 console.log(keys);
 // for each key, find count from charCount variable and check if count is just 1
-keys.forEach((key) => {
+keys.forEach((item) => {
     // 1. console.log(charCount[key]);
     // 2. remaining logic
-    if (charCount[key] === 1) {
-        console.log(key, " is unique");
+    if (charCount[item] === 1) {
+        console.log(item, " is unique");
     }
 })
