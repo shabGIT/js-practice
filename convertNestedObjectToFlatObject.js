@@ -1,4 +1,4 @@
-const obj1 = {
+const Obj1 = {
     a: 10,
     b: 30,
     c: {
@@ -16,7 +16,6 @@ const obj1 = {
     l: 4,
 }
 
-const flatObject = {};
 
 const myObj = {
     a: 1,
@@ -25,19 +24,20 @@ const myObj = {
     }
 }
 
-function convertToFlat(myObj, objName) {
-    let keys = Object.keys(myObj);
+function convertToFlat(objName, obj) {
+    let keys = Object.keys(obj);
     keys.forEach((key) => {
-        let newKey = objName + "_" + key;
-        let value = myObj[key];
+        let newKey = objName + "." + key;
+        let value = obj[key];
         if (typeof (value) === 'object') {
             //handles objects
-            convertToFlat(value, newKey);
+            convertToFlat(newKey, value);
         } else {
             // handles flats properties
             flatObject[newKey] = value;
         }
     })
 }
-convertToFlat(myObj, "myObj")
+const flatObject = {};
+convertToFlat("Obj1", Obj1)
 console.log(flatObject);
