@@ -17,7 +17,6 @@ const obj1 = {
 }
 
 const flatObject = {};
-const flatObject1 = {};
 
 const myObj = {
     a: 1,
@@ -28,16 +27,14 @@ const myObj = {
 
 function convertToFlat(myObj, objName) {
     let keys = Object.keys(myObj);
-    //console.log(keys, "at current Level");
     keys.forEach((key) => {
-        let isObject = typeof (myObj[key]) === typeof ({});
-        if (isObject) {
+        let newKey = objName + "_" + key;
+        let value = myObj[key];
+        if (typeof (value) === 'object') {
             //handles objects
-            convertToFlat(myObj[key], objName + "_" + key);
+            convertToFlat(value, newKey);
         } else {
             // handles flats properties
-            let newKey = objName + "_" + key;
-            let value = myObj[key];
             flatObject[newKey] = value;
         }
     })
