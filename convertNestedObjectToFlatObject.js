@@ -24,17 +24,17 @@ const myObj = {
     }
 }
 
-function convertToFlat(objName, obj) {
-    let keys = Object.keys(obj);            // array of keys
-    keys.forEach((key) => {                  // iterating over keys
-        let newKey = objName + "." + key;       // newkey 
-        let value = obj[key];                         // value for given key
-        if (typeof (value) === 'object') {            
+export function convertToFlat(objName, obj) {
+    let keys = Object.keys(obj); // array of keys
+    keys.forEach((key) => { // iterating over keys
+        let newKey = objName + "." + key; // newkey 
+        let value = obj[key]; // value for given key
+        if (typeof (value) === 'object') {
             //handles objects
-            convertToFlat(newKey, value);             // map object k liye upar ka method execute kiye(convertToFlat)
+            convertToFlat(newKey, value); // map object k liye upar ka method execute kiye(convertToFlat)
         } else {
             // handles flats properties
-            flatObject[newKey] = value;              //  faltobject me key and value insert kiye
+            flatObject[newKey] = value; //  faltobject me key and value insert kiye
         }
     })
 }
