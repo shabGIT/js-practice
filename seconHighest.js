@@ -6,5 +6,5 @@
 // const array=[1,4,8,7,9,2,3,3,7,8,9,1,0]
 const array=[1,1,1,1,1]
 const result = array.filter((item, index) => array.indexOf(item) === index)
-const result1 = result.sort((acc, cur) => acc < cur ? 1 : -1).slice(1,2)
+const result1 = result.sort((acc, cur) => acc < cur ? 1 : -1).slice(1,2)   
 console.log(result1)
